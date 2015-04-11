@@ -1,0 +1,599 @@
+Release 14.2 - xst P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.39 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.40 secs
+ 
+--> Reading design: FinalCode.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "FinalCode.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "FinalCode"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : FinalCode
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx/FloatingPointAlu/FloatingPointAlu.vhd" in Library work.
+Entity <FinalCode> compiled.
+Entity <FinalCode> (Architecture <Behav>) compiled.
+Entity <FloatingPointAlu> compiled.
+Entity <FloatingPointAlu> (Architecture <Behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <FinalCode> in library <work> (architecture <Behav>).
+
+Analyzing hierarchy for entity <FloatingPointAlu> in library <work> (architecture <Behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <FinalCode> in library <work> (Architecture <Behav>).
+INFO:Xst:1561 - "C:/Xilinx/FloatingPointAlu/FloatingPointAlu.vhd" line 105: Mux is complete : default of case is discarded
+Entity <FinalCode> analyzed. Unit <FinalCode> generated.
+
+Analyzing Entity <FloatingPointAlu> in library <work> (Architecture <Behavioral>).
+Entity <FloatingPointAlu> analyzed. Unit <FloatingPointAlu> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <FloatingPointAlu>.
+    Related source file is "C:/Xilinx/FloatingPointAlu/FloatingPointAlu.vhd".
+WARNING:Xst:1780 - Signal <temp> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <f3> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:737 - Found 3-bit latch for signal <tempe>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <tempf>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:2109 - Contents of latch <temps> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Found 3-bit adder for signal <e3$addsub0000> created at line 364.
+    Found 3-bit subtractor for signal <e_diff>.
+    Found 3-bit subtractor for signal <e_diff_sig$share0000> created at line 321.
+    Found 3-bit comparator greater for signal <f2_var_4$cmp_gt0000> created at line 321.
+    Found 6-bit addsub for signal <f3_var>.
+    Found 1-bit xor2 for signal <f3_var$xor0000> created at line 336.
+    Found 3-bit comparator less for signal <tempe$cmp_lt0000> created at line 265.
+    Found 3-bit comparator equal for signal <tempf$cmp_eq0000> created at line 276.
+    Found 4-bit comparator less for signal <tempf$cmp_lt0000> created at line 280.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+Unit <FloatingPointAlu> synthesized.
+
+
+Synthesizing Unit <FinalCode>.
+    Related source file is "C:/Xilinx/FloatingPointAlu/FloatingPointAlu.vhd".
+WARNING:Xst:647 - Input <cin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit 16-to-1 multiplexer for signal <temp1>.
+    Found 8-bit 16-to-1 multiplexer for signal <temp2>.
+    Found 8-bit xor2 for signal <y$xor0000> created at line 118.
+    Summary:
+	inferred  16 Multiplexer(s).
+Unit <FinalCode> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 3-bit adder                                           : 1
+ 3-bit subtractor                                      : 2
+ 6-bit addsub                                          : 1
+# Latches                                              : 2
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 1
+# Comparators                                          : 4
+ 3-bit comparator equal                                : 1
+ 3-bit comparator greater                              : 1
+ 3-bit comparator less                                 : 1
+ 4-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 8-bit 16-to-1 multiplexer                             : 2
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 3-bit adder                                           : 1
+ 3-bit subtractor                                      : 2
+ 6-bit addsub                                          : 1
+# Latches                                              : 2
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 1
+# Comparators                                          : 4
+ 3-bit comparator equal                                : 1
+ 3-bit comparator greater                              : 1
+ 3-bit comparator less                                 : 1
+ 4-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 8-bit 16-to-1 multiplexer                             : 2
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: e2<2>, s1, tempe_cmp_lt0000.
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: Maddsub_f3_var_cy<0>, f3_var_xor00001, f1<3>, Maddsub_f3_var_cy<3>, Madd_e3_addsub0000_lut<2>, Maddsub_f3_var_cy<1>, Maddsub_f3_var_cy<4>, f3_var<5>, f3_var_xor0000, Maddsub_f3_var_cy<2>, f2<3>, tempf_cmp_lt0000, s2.
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: e3_addsub0000<1>, Madd_e3_addsub0000_lut<1>.
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: Maddsub_f3_var_lut<3>, f2_var<3>, f2_var_4_cmp_gt0000, c<3>, Msub_e_diff_sig_share0000_cy<0>, f3_var<3>.
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: Msub_e_diff_sig_share0000_cy<0>.
+WARNING:Xst:2170 - Unit FloatingPointAlu : the following signal(s) form a combinatorial loop: Madd_e3_addsub0000_cy<0>.
+
+Optimizing unit <FinalCode> ...
+
+Optimizing unit <FloatingPointAlu> ...
+
+Mapping all equations...
+WARNING:Xst:2170 - Unit FinalCode : the following signal(s) form a combinatorial loop: x0/e_diff_sig<1>.
+WARNING:Xst:2170 - Unit FinalCode : the following signal(s) form a combinatorial loop: temp_out<6>.
+WARNING:Xst:2170 - Unit FinalCode : the following signal(s) form a combinatorial loop: x0/e_diff_sig<2>.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block FinalCode, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : FinalCode.ngr
+Top Level Output File Name         : FinalCode
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 29
+
+Cell Usage :
+# BELS                             : 143
+#      GND                         : 1
+#      LUT2                        : 13
+#      LUT3                        : 24
+#      LUT4                        : 62
+#      MUXCY                       : 5
+#      MUXF5                       : 23
+#      MUXF6                       : 8
+#      VCC                         : 1
+#      XORCY                       : 6
+# FlipFlops/Latches                : 7
+#      LD                          : 3
+#      LDCPE                       : 4
+# IO Buffers                       : 28
+#      IBUF                        : 20
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       56  out of   4656     1%  
+ Number of Slice Flip Flops:              7  out of   9312     0%  
+ Number of 4 input LUTs:                 99  out of   9312     1%  
+ Number of IOs:                          29
+ Number of bonded IOBs:                  28  out of    232    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------------+------------------------+-------+
+Clock Signal                                | Clock buffer(FF name)  | Load  |
+--------------------------------------------+------------------------+-------+
+x0/tempe_cmp_lt0000(x0/tempe_cmp_lt00001:O) | NONE(*)(x0/tempe_2)    | 3     |
+x0/tempf_cmp_eq0000(x0/tempf_cmp_eq000031:O)| NONE(*)(x0/tempf_3)    | 4     |
+--------------------------------------------+------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------+------------------------+-------+
+Control Signal                             | Buffer(FF name)        | Load  |
+-------------------------------------------+------------------------+-------+
+x0/tempf_0__and0000(x0/tempf_0__and00001:O)| NONE(x0/tempf_0)       | 1     |
+x0/tempf_0__and0001(x0/tempf_0__and00011:O)| NONE(x0/tempf_0)       | 1     |
+x0/tempf_1__and0000(x0/tempf_1__and00001:O)| NONE(x0/tempf_1)       | 1     |
+x0/tempf_1__and0001(x0/tempf_1__and00011:O)| NONE(x0/tempf_1)       | 1     |
+x0/tempf_2__and0000(x0/tempf_2__and00001:O)| NONE(x0/tempf_2)       | 1     |
+x0/tempf_2__and0001(x0/tempf_2__and00011:O)| NONE(x0/tempf_2)       | 1     |
+x0/tempf_3__and0000(x0/tempf_3__and00001:O)| NONE(x0/tempf_3)       | 1     |
+x0/tempf_3__and0001(x0/tempf_3__and00011:O)| NONE(x0/tempf_3)       | 1     |
+-------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.935ns (Maximum Frequency: 168.492MHz)
+   Minimum input arrival time before clock: 15.187ns
+   Maximum output required time after clock: 28.687ns
+   Maximum combinational path delay: 31.964ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'x0/tempe_cmp_lt0000'
+  Clock period: 2.214ns (frequency: 451.671MHz)
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               2.214ns (Levels of Logic = 1)
+  Source:            x0/tempe_2 (LATCH)
+  Destination:       x0/tempe_2 (LATCH)
+  Source Clock:      x0/tempe_cmp_lt0000 falling
+  Destination Clock: x0/tempe_cmp_lt0000 falling
+
+  Data Path: x0/tempe_2 to x0/tempe_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               2   0.676   0.526  x0/tempe_2 (x0/tempe_2)
+     LUT4:I1->O            4   0.704   0.000  x0/e2_2_mux00001 (x0/e2<2>)
+     LD:D                      0.308          x0/tempe_2
+    ----------------------------------------
+    Total                      2.214ns (1.688ns logic, 0.526ns route)
+                                       (76.2% logic, 23.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'x0/tempf_cmp_eq0000'
+  Clock period: 5.935ns (frequency: 168.492MHz)
+  Total number of paths / destination ports: 52 / 8
+-------------------------------------------------------------------------
+Delay:               5.935ns (Levels of Logic = 3)
+  Source:            x0/tempf_1 (LATCH)
+  Destination:       x0/tempf_3 (LATCH)
+  Source Clock:      x0/tempf_cmp_eq0000 falling
+  Destination Clock: x0/tempf_cmp_eq0000 falling
+
+  Data Path: x0/tempf_1 to x0/tempf_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCPE:G->Q            4   0.676   0.762  x0/tempf_1 (x0/tempf_1)
+     LUT4:I0->O            3   0.704   0.706  x0/f2_1_mux0002 (x0/f2<1>)
+     LUT4:I0->O            1   0.704   0.420  x0/tempf_cmp_lt00002 (x0/tempf_cmp_lt00001)
+     MUXF5:S->O            6   0.739   0.669  x0/tempf_cmp_lt00001_f5 (x0/tempf_cmp_lt0000)
+     LDCPE:GE                  0.555          x0/tempf_3
+    ----------------------------------------
+    Total                      5.935ns (3.378ns logic, 2.557ns route)
+                                       (56.9% logic, 43.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'x0/tempe_cmp_lt0000'
+  Total number of paths / destination ports: 15 / 3
+-------------------------------------------------------------------------
+Offset:              5.045ns (Levels of Logic = 3)
+  Source:            sel<0> (PAD)
+  Destination:       x0/tempe_2 (LATCH)
+  Destination Clock: x0/tempe_cmp_lt0000 falling
+
+  Data Path: sel<0> to x0/tempe_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            34   1.218   1.438  sel_0_IBUF (sel_0_IBUF)
+     LUT4:I0->O            6   0.704   0.673  Mmux_temp21211 (N01)
+     LUT4:I3->O            4   0.704   0.000  x0/e2_2_mux00001 (x0/e2<2>)
+     LD:D                      0.308          x0/tempe_2
+    ----------------------------------------
+    Total                      5.045ns (2.934ns logic, 2.111ns route)
+                                       (58.2% logic, 41.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'x0/tempf_cmp_eq0000'
+  Total number of paths / destination ports: 3380 / 8
+-------------------------------------------------------------------------
+Offset:              15.187ns (Levels of Logic = 10)
+  Source:            sel<1> (PAD)
+  Destination:       x0/tempf_3 (LATCH)
+  Destination Clock: x0/tempf_cmp_eq0000 falling
+
+  Data Path: sel<1> to x0/tempf_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            27   1.218   1.436  sel_1_IBUF (sel_1_IBUF)
+     LUT3:I0->O            8   0.704   0.932  Mmux_temp11211 (N2)
+     LUT3:I0->O            1   0.704   0.000  x0/e1_1_mux00001 (x0/e1_1_mux0000)
+     MUXF5:I0->O           5   0.321   0.712  x0/e1_1_mux0000_f5 (x0/e1<1>)
+     LUT4:I1->O            1   0.704   0.455  x0/tempe_cmp_lt00001_SW0 (N32)
+     LUT3:I2->O           19   0.704   1.260  x0/tempe_cmp_lt00001 (x0/tempe_cmp_lt0000)
+     LUT3:I0->O            8   0.704   0.836  x0/f1_0_mux000221 (x0/N2)
+     LUT4:I1->O            3   0.704   0.706  x0/f2_1_mux0002 (x0/f2<1>)
+     LUT4:I0->O            1   0.704   0.420  x0/tempf_cmp_lt00002 (x0/tempf_cmp_lt00001)
+     MUXF5:S->O            6   0.739   0.669  x0/tempf_cmp_lt00001_f5 (x0/tempf_cmp_lt0000)
+     LDCPE:GE                  0.555          x0/tempf_3
+    ----------------------------------------
+    Total                     15.187ns (7.761ns logic, 7.426ns route)
+                                       (51.1% logic, 48.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'x0/tempe_cmp_lt0000'
+  Total number of paths / destination ports: 76474 / 8
+-------------------------------------------------------------------------
+Offset:              28.687ns (Levels of Logic = 25)
+  Source:            x0/tempe_0 (LATCH)
+  Destination:       y<6> (PAD)
+  Source Clock:      x0/tempe_cmp_lt0000 falling
+
+  Data Path: x0/tempe_0 to y<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               2   0.676   0.526  x0/tempe_0 (x0/tempe_0)
+     LUT4:I1->O            6   0.704   0.844  x0/e2_0_mux00001 (x0/e2<0>)
+     LUT4:I0->O            1   0.704   0.455  x0/tempe_cmp_lt00001_SW0 (N32)
+     LUT3:I2->O           19   0.704   1.260  x0/tempe_cmp_lt00001 (x0/tempe_cmp_lt0000)
+     LUT3:I0->O            8   0.704   0.836  x0/f1_0_mux000221 (x0/N2)
+     LUT4:I1->O            3   0.704   0.706  x0/f2_1_mux0002 (x0/f2<1>)
+     LUT4:I0->O            1   0.704   0.420  x0/tempf_cmp_lt00002 (x0/tempf_cmp_lt00001)
+     MUXF5:S->O            6   0.739   0.704  x0/tempf_cmp_lt00001_f5 (x0/tempf_cmp_lt0000)
+     LUT3:I2->O           10   0.704   0.917  x0/f1_0_mux000231 (x0/N3)
+     LUT4:I2->O            4   0.704   0.762  x0/s11 (temp_out<7>)
+     LUT3:I0->O            6   0.704   0.704  x0/Mxor_f3_var_xor0000_Result1 (x0/f3_var_xor0000)
+     LUT3:I2->O            1   0.704   0.000  x0/Maddsub_f3_var_lut<0> (x0/Maddsub_f3_var_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  x0/Maddsub_f3_var_cy<0> (x0/Maddsub_f3_var_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<1> (x0/Maddsub_f3_var_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<2> (x0/Maddsub_f3_var_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<3> (x0/Maddsub_f3_var_cy<3>)
+     MUXCY:CI->O           0   0.059   0.000  x0/Maddsub_f3_var_cy<4> (x0/Maddsub_f3_var_cy<4>)
+     XORCY:CI->O           7   0.804   0.883  x0/Maddsub_f3_var_xor<5> (x0/f3_var<5>)
+     LUT3:I0->O            5   0.704   0.668  x0/e3<0>1 (temp_out<4>)
+     LUT4:I2->O            4   0.704   0.666  x0/e3<1>1 (temp_out<5>)
+     LUT3:I1->O            1   0.704   0.000  x0/e3<2>1 (x0/e3<2>)
+     MUXF5:I1->O           3   0.321   0.706  x0/e3<2>_f5 (temp_out<6>)
+     LUT4:I0->O            1   0.704   0.000  y<6>14 (y<6>13)
+     MUXF5:I0->O           1   0.321   0.000  y<6>1_f5_0 (y<6>1_f51)
+     MUXF6:I0->O           1   0.521   0.420  y<6>1_f6 (y_6_OBUF)
+     OBUF:I->O                 3.272          y_6_OBUF (y<6>)
+    ----------------------------------------
+    Total                     28.687ns (17.210ns logic, 11.477ns route)
+                                       (60.0% logic, 40.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'x0/tempf_cmp_eq0000'
+  Total number of paths / destination ports: 5644 / 8
+-------------------------------------------------------------------------
+Offset:              22.712ns (Levels of Logic = 21)
+  Source:            x0/tempf_1 (LATCH)
+  Destination:       y<6> (PAD)
+  Source Clock:      x0/tempf_cmp_eq0000 falling
+
+  Data Path: x0/tempf_1 to y<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCPE:G->Q            4   0.676   0.762  x0/tempf_1 (x0/tempf_1)
+     LUT4:I0->O            3   0.704   0.706  x0/f2_1_mux0002 (x0/f2<1>)
+     LUT4:I0->O            1   0.704   0.420  x0/tempf_cmp_lt00002 (x0/tempf_cmp_lt00001)
+     MUXF5:S->O            6   0.739   0.704  x0/tempf_cmp_lt00001_f5 (x0/tempf_cmp_lt0000)
+     LUT3:I2->O           10   0.704   0.917  x0/f1_0_mux000231 (x0/N3)
+     LUT4:I2->O            4   0.704   0.762  x0/s11 (temp_out<7>)
+     LUT3:I0->O            6   0.704   0.704  x0/Mxor_f3_var_xor0000_Result1 (x0/f3_var_xor0000)
+     LUT3:I2->O            1   0.704   0.000  x0/Maddsub_f3_var_lut<0> (x0/Maddsub_f3_var_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  x0/Maddsub_f3_var_cy<0> (x0/Maddsub_f3_var_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<1> (x0/Maddsub_f3_var_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<2> (x0/Maddsub_f3_var_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<3> (x0/Maddsub_f3_var_cy<3>)
+     MUXCY:CI->O           0   0.059   0.000  x0/Maddsub_f3_var_cy<4> (x0/Maddsub_f3_var_cy<4>)
+     XORCY:CI->O           7   0.804   0.883  x0/Maddsub_f3_var_xor<5> (x0/f3_var<5>)
+     LUT3:I0->O            5   0.704   0.668  x0/e3<0>1 (temp_out<4>)
+     LUT4:I2->O            4   0.704   0.666  x0/e3<1>1 (temp_out<5>)
+     LUT3:I1->O            1   0.704   0.000  x0/e3<2>1 (x0/e3<2>)
+     MUXF5:I1->O           3   0.321   0.706  x0/e3<2>_f5 (temp_out<6>)
+     LUT4:I0->O            1   0.704   0.000  y<6>14 (y<6>13)
+     MUXF5:I0->O           1   0.321   0.000  y<6>1_f5_0 (y<6>1_f51)
+     MUXF6:I0->O           1   0.521   0.420  y<6>1_f6 (y_6_OBUF)
+     OBUF:I->O                 3.272          y_6_OBUF (y<6>)
+    ----------------------------------------
+    Total                     22.712ns (14.394ns logic, 8.318ns route)
+                                       (63.4% logic, 36.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 413134 / 8
+-------------------------------------------------------------------------
+Delay:               31.964ns (Levels of Logic = 28)
+  Source:            sel<1> (PAD)
+  Destination:       y<6> (PAD)
+
+  Data Path: sel<1> to y<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            27   1.218   1.436  sel_1_IBUF (sel_1_IBUF)
+     LUT3:I0->O            8   0.704   0.932  Mmux_temp11211 (N2)
+     LUT3:I0->O            1   0.704   0.000  x0/e1_1_mux00001 (x0/e1_1_mux0000)
+     MUXF5:I0->O           5   0.321   0.712  x0/e1_1_mux0000_f5 (x0/e1<1>)
+     LUT4:I1->O            1   0.704   0.455  x0/tempe_cmp_lt00001_SW0 (N32)
+     LUT3:I2->O           19   0.704   1.260  x0/tempe_cmp_lt00001 (x0/tempe_cmp_lt0000)
+     LUT3:I0->O            8   0.704   0.836  x0/f1_0_mux000221 (x0/N2)
+     LUT4:I1->O            3   0.704   0.706  x0/f2_1_mux0002 (x0/f2<1>)
+     LUT4:I0->O            1   0.704   0.420  x0/tempf_cmp_lt00002 (x0/tempf_cmp_lt00001)
+     MUXF5:S->O            6   0.739   0.704  x0/tempf_cmp_lt00001_f5 (x0/tempf_cmp_lt0000)
+     LUT3:I2->O           10   0.704   0.917  x0/f1_0_mux000231 (x0/N3)
+     LUT4:I2->O            4   0.704   0.762  x0/s11 (temp_out<7>)
+     LUT3:I0->O            6   0.704   0.704  x0/Mxor_f3_var_xor0000_Result1 (x0/f3_var_xor0000)
+     LUT3:I2->O            1   0.704   0.000  x0/Maddsub_f3_var_lut<0> (x0/Maddsub_f3_var_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  x0/Maddsub_f3_var_cy<0> (x0/Maddsub_f3_var_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<1> (x0/Maddsub_f3_var_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<2> (x0/Maddsub_f3_var_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  x0/Maddsub_f3_var_cy<3> (x0/Maddsub_f3_var_cy<3>)
+     MUXCY:CI->O           0   0.059   0.000  x0/Maddsub_f3_var_cy<4> (x0/Maddsub_f3_var_cy<4>)
+     XORCY:CI->O           7   0.804   0.883  x0/Maddsub_f3_var_xor<5> (x0/f3_var<5>)
+     LUT3:I0->O            5   0.704   0.668  x0/e3<0>1 (temp_out<4>)
+     LUT4:I2->O            4   0.704   0.666  x0/e3<1>1 (temp_out<5>)
+     LUT3:I1->O            1   0.704   0.000  x0/e3<2>1 (x0/e3<2>)
+     MUXF5:I1->O           3   0.321   0.706  x0/e3<2>_f5 (temp_out<6>)
+     LUT4:I0->O            1   0.704   0.000  y<6>14 (y<6>13)
+     MUXF5:I0->O           1   0.321   0.000  y<6>1_f5_0 (y<6>1_f51)
+     MUXF6:I0->O           1   0.521   0.420  y<6>1_f6 (y_6_OBUF)
+     OBUF:I->O                 3.272          y_6_OBUF (y<6>)
+    ----------------------------------------
+    Total                     31.964ns (18.777ns logic, 13.187ns route)
+                                       (58.7% logic, 41.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 34.00 secs
+Total CPU time to Xst completion: 34.21 secs
+ 
+--> 
+
+Total memory usage is 274896 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   15 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

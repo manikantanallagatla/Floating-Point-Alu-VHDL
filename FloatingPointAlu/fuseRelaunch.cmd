@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Xilinx/FloatingPointAlu/fa_isim_beh.exe" -prj "C:/Xilinx/FloatingPointAlu/fa_beh.prj" "work.fa" 
