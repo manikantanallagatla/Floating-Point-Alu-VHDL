@@ -1,7 +1,7 @@
-#***Floating-Point-Alu-VHDL***:
+# ***Floating-Point-Alu-VHDL***:
 
 ----------
-###*Aim*:
+### *Aim*:
 
 ----------
 
@@ -27,21 +27,21 @@ division, AND, OR, NOT, XOR on floating point numbers as shown below.
 
 
 -------------
-###*Softwares Used*:
+### *Softwares Used*:
 
 -------------
 
 Xilinx 14.2
 
 -------------
-###*Languages Written*:
+### *Languages Written*:
 
 -------------
 
 VHDL
 
 -------------
-###*Usage*:
+### *Usage*:
 
 -------------
 
